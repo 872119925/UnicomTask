@@ -6,6 +6,13 @@ def readFile(filepath):
         content=fp.read()
     return content
 
+#push推送
+def pushPlusNotify(self, text, desp):
+        if self.PUSH_PLUS_TOKEN != '':
+            desp = re.sub('[\n\r]', '<br>', desp, 0)
+            response = json.dumps(requests.post('https://pushplus.hxtrip.com/send', data={
+                                  'token': self.PUSH_PLUS_TOKEN, 'title':'UnicomTask每日报表', 'content': readFile('log.txt'), 'topic': self.PUSH_PLUS_USER}, headers={'Content-Type': 'application/json;charset=utf-8'}).json(), ensure_ascii=False)
+
 #邮件推送api来自流星云
 def sendEmail():
     #要发送邮件内容
