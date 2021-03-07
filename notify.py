@@ -23,10 +23,10 @@ def readSecret(self, key, default=""):
 #push推送
 def pushPlusNotify():
     receivers = readSecret('PUSH_PLUS_TOKEN')
-    if receivers != '':
-    content = readFile('log.txt')
-    response = json.dumps(requests.post('https://pushplus.hxtrip.com/send', data={
-                          'token': receivers, 'title':'UnicomTask每日报表', 'content': content, 'topic': ''}, headers={'Content-Type': 'application/json;charset=utf-8'}).json(), ensure_ascii=False)
+        if receivers != '':
+            content = readFile('log.txt')
+            response = json.dumps(requests.post('https://pushplus.hxtrip.com/send', data={
+                                  'token': receivers, 'title':'UnicomTask每日报表', 'content': content, 'topic': ''}, headers={'Content-Type': 'application/json;charset=utf-8'}).json(), ensure_ascii=False)
 
 #邮件推送api来自流星云
 def sendEmail():
