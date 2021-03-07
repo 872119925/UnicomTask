@@ -1,5 +1,14 @@
 import smtplib,traceback,os,requests,urllib
 from email.mime.text import MIMEText
+import re
+import requests
+import time
+import hmac
+import hashlib
+import base64
+import json
+import os
+from urllib import parse
 
 def readFile(filepath):
     with open(filepath,'r',encoding='UTF-8') as fp:
