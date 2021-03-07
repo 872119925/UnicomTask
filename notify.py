@@ -8,14 +8,14 @@ def readFile(filepath):
 
 #push推送
 def pushPlusNotify():
-    receivers = os.environ.get('EMAIL_COVER')
+    receivers = os.environ.get('PUSH_PLUS_TOKEN')
     content = readFile('log.txt')
             response = json.dumps(requests.post('https://pushplus.hxtrip.com/send', 
             data={
                   'token': receivers, 
                   'title':'UnicomTask每日报表', 
                   'content': content, 
-                  'topic': self.PUSH_PLUS_USER}, 
+                  'topic': ''}, 
                    headers={'Content-Type': 'application/json;charset=utf-8'}).json(), 
                    ensure_ascii=False)
 
