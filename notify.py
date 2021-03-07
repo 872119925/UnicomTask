@@ -15,9 +15,14 @@ def readFile(filepath):
         content=fp.read()
     return content
 
+def readSecret(self, key, default=""):
+        if key in os.environ and not os.environ[key].strip() == '':
+            return os.environ[key]
+        else:
+            return default
 #push推送
 def pushPlusNotify():
-    receivers = os.environ.get('PUSH_PLUS_TOKEN')
+    receivers = readSecret('PUSH_PLUS_TOKEN')
     content = readFile('log.txt')
             response = json.dumps(requests.post('https://pushplus.hxtrip.com/send', 
             data={
