@@ -309,7 +309,7 @@ if __name__ == '__main__':
         gameCenterSign_Task()
         openBox_task()
         collectFlow_task()
-        notify.pushPlusNotify()
+#         notify.pushPlusNotify()
     if len(os.environ.get('EMAIL_COVER')) != 0:
         notify.sendEmail()
     if len(os.environ.get('DINGTALK_WEBHOOK')) !=0:
