@@ -315,3 +315,5 @@ if __name__ == '__main__':
         notify.sendDing()
     if len(os.environ.get('TG_TOKEN')) !=0:
         notify.sendTg()
+    if len(os.environ.get('PUSH_PLUS_TOKEN')) !=0:
+        notify.pushPlusNotify()
